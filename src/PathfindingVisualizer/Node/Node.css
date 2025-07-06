@@ -1,0 +1,411 @@
+/* IMPORTING CONSTANTS.CSS */
+@import '../../constants/constants.css';
+
+/* BASE NODE */
+
+.node {
+  display: inline-block;
+  vertical-align: top;
+  width: 25px;
+  height: 25px;
+  gap: 0px;
+  margin: 0px;
+  padding: 0%;
+}
+
+.node.default {
+  outline: 1px solid rgba(175, 217, 248, 0.592);
+  box-shadow: inset 0 0 0 0.5px #aee6fa; /* light blue grid lines */
+}
+.node.road {
+  outline: none;
+  background-color: white;
+  background-image: url(../../assets/images/road/grassblock.png);
+  background-size: contain;
+}
+
+/* FINISH NODE */
+.node-finish {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.node-finish.default {
+  background-color: #ff4e80; /* Bootstrap-style green */
+  border-radius: 50%; /* Makes it a circle */
+  width: 25px; /* Adjust size as needed */
+  height: 25px;
+  /*background-image: url(../../assets/svg/target.svg);*/
+}
+
+.node-finish.road {
+  background-image: url(../../assets/images/road/car_end.png);
+}
+
+/* START NODE */
+.node-start {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.node-start.road {
+  background: url(../../assets/images/svg/car_right.svg) right bottom no-repeat,
+    url(../../assets/images/road/grassblock.png) left top repeat;
+  background-size: contain;
+}
+
+.node-start.default {
+  background-color: #1ae99c; /* Bootstrap-style green */
+  border-radius: 50%; /* Makes it a circle */
+  width: 25px; /* Adjust size as needed */
+  height: 25px;
+  /*  background-image: url(../../assets/svg/point-right.svg);*/
+}
+
+/* VISITED NODE */
+.node-visited.road {
+  background-image: url(../../assets/images/road/grassblock.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation-name: visitedAnimationRoad;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  background-color: transparent; /* So base texture is visible */
+}
+.node-visited.default {
+  animation-name: visitedAnimation;
+}
+.node-visited.default,
+.node-visited.road {
+  background-image: none;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+/* START NODE IMAGE */
+.node-img-start {
+  background-size: cover;
+}
+
+.node-img-start.default {
+  background-color: #1ae99c; /* Bootstrap-style green */
+  border-radius: 50%; /* Makes it a circle */
+  width: 25px; /* Adjust size as needed */
+  height: 25px;
+}
+
+.node-img-start.road {
+  background-image: url(../../assets/images/svg/car_right.svg);
+  background-size: contain;
+}
+
+/* FINISH NODE IMAGE */
+.node-img-finish.default {
+  background-color: #ff4e80; /* Bootstrap-style green */
+  border-radius: 50%; /* Makes it a circle */
+  width: 25px; /* Adjust size as needed */
+  height: 25px;
+}
+
+.node-img-finish.road {
+  background-image: url(../../assets/images/road/car_end.png);
+  background-size: cover;
+}
+
+/* VISITED NODE ANIMATION */
+@keyframes visitedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(17, 104, 217, 0.75);
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(0, 217, 159, 0.75);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgba(0, 190, 218, 0.75);
+  }
+}
+
+@keyframes visitedAnimationRoad {
+  0% {
+    background-color: rgba(0, 66, 10, 0.75);
+    border-radius: 100%;
+    box-shadow: 0 0 0 0 rgba(40, 165, 23, 0.4);
+  }
+
+  50% {
+    background-color: rgba(26, 133, 23, 0.75);
+    box-shadow: 0 0 10px 4px rgba(40, 165, 23, 0.6);
+  }
+
+  75% {
+    background-color: rgba(5, 63, 14, 0.75);
+    box-shadow: 0 0 6px 2px rgba(40, 165, 23, 0.4);
+  }
+
+  100% {
+    background-color: rgba(40, 165, 23, 0.75);
+    box-shadow: 0 0 0 0 rgba(40, 165, 23, 0);
+  }
+}
+
+.node-wall.default {
+  animation-name: wallPlace;
+}
+
+.node-wall.road {
+  animation-name: wallPlaceRoad;
+}
+
+@keyframes fadeInWall {
+  from {
+    background-color: transparent;
+    opacity: 0;
+  }
+  to {
+    background-color: #343a40;
+    opacity: 1;
+  }
+}
+
+/* WALL NODE */
+.node-wall.default,
+.node-wall.road {
+  animation-name: fadeInWall;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+.node-wall.road {
+  background-image: url(../../assets/images/road/wall.png);
+}
+/* SHORTEST PATH NODE */
+.node-shortest-path-right.default {
+  animation-name: shortestPathRight;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.node-shortest-path-right.road {
+  background-image: url(../../assets/images/road/road_straight.png);
+  background-size: cover;
+  animation: shortestPathStraightRoad 2s forwards;
+}
+
+.node-shortest-path-left.road {
+  background-image: url(../../assets/images/road/car_road_left.png);
+  background-size: cover;
+  animation: shortestPathStraightRoad 2s forwards;
+}
+
+.node-shortest-path-up.road {
+  background-image: url(../../assets/images/road/car_road_up.png);
+  background-size: cover;
+  animation: shortestPathSidesRoad 2s forwards;
+}
+
+.node-shortest-path-down.road {
+  background-image: url(../../assets/images/road/car_road_down.png);
+  background-size: cover;
+  animation: shortestPathSidesRoad 2s forwards;
+}
+
+.node-shortest-path-left.default {
+  animation-name: shortestPathLeft;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.node-shortest-path-up.default {
+  animation-name: shortestPathUp;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.node-shortest-path-down.default {
+  animation-name: shortestPathDown;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+/* WALL PLACE ANIMATION */
+@keyframes wallPlace {
+  0% {
+    transform: scale(1);
+    background-color: rgb(12, 53, 71);
+  }
+
+  50% {
+    transform: scale(0.7);
+    background-color: rgb(12, 53, 71);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgb(12, 53, 71);
+  }
+}
+
+@keyframes wallPlaceRoad {
+  0% {
+    transform: scale(1);
+    background-color: rgb(12, 53, 71);
+  }
+
+  50% {
+    transform: scale(0.7);
+    background-color: rgb(12, 53, 71);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgb(12, 53, 71);
+  }
+}
+/* SHORTEST PATH ANIMATION */
+@keyframes shortestPathRight {
+  0% {
+    background-image: url(../../assets/images/svg/point-right.svg);
+    background-size: cover;
+    transform: scale(0.6);
+    background-color: rgb(255, 254, 106);
+  }
+
+  10% {
+    background-image: none;
+    transform: scale(1.2);
+    background-color: rgb(255, 254, 106);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgb(255, 254, 106);
+  }
+}
+
+@keyframes shortestPathStraightRoad {
+  0% {
+    background-image: url(../../assets/images/road/car_road_right.png);
+  }
+  100% {
+    background-image: url(../../assets/images/road/road_straight.png);
+  }
+}
+
+@keyframes shortestPathSidesRoad {
+  100% {
+    background-image: url(../../assets/images/road/road_down.png);
+  }
+}
+@keyframes shortestPathLeft {
+  0% {
+    background-image: url(../../assets/images/svg/point-left.svg);
+    background-size: cover;
+    transform: scale(0.6);
+    background-color: rgb(255, 254, 106);
+  }
+
+  10% {
+    background-image: none;
+    transform: scale(1.2);
+    background-color: rgb(255, 254, 106);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgb(255, 254, 106);
+  }
+}
+
+@keyframes shortestPathUp {
+  0% {
+    background-image: url(../../assets/images/svg/point-up.svg);
+    background-size: cover;
+    transform: scale(0.6);
+    background-color: rgb(255, 254, 106);
+  }
+
+  10% {
+    background-image: none;
+    transform: scale(1.2);
+    background-color: rgb(255, 254, 106);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgb(255, 254, 106);
+  }
+}
+
+@keyframes shortestPathDown {
+  0% {
+    background-image: url(../../assets/images/svg/point-down.svg);
+    background-size: cover;
+    transform: scale(0.6);
+    background-color: rgb(255, 254, 106);
+  }
+
+  10% {
+    background-image: none;
+    transform: scale(1.2);
+    background-color: rgb(255, 254, 106);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgb(255, 254, 106);
+  }
+}

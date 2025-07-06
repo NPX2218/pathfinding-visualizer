@@ -1,0 +1,197 @@
+/* IMPORTING CONSTANTS.CSS */
+@import '../constants/constants.css';
+
+/* GRID STYLE */
+.grid {
+  margin: 50px 0px 0px 0px;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* SCROLLBAR TRACK */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* SCROLLBAR HANDLE */
+::-webkit-scrollbar-thumb {
+  background: var(--scrollBarHandle);
+  border-radius: 10 x;
+}
+
+/* SCROLLBAR HANDLE HOVER */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* NAVBAR WRAPPER */
+.navbar-wrapper {
+  background-color: var(--mainColor);
+}
+
+/* NAVBAR ICONS AND TEXT */
+.navbar-wrapper span {
+  color: var(--textColor);
+}
+
+/* NAVBAR ICONS AND TEXT WRAPPER */
+.navbar-wrapper .nav-link {
+  opacity: 0.7;
+}
+
+/* NAVBAR ICONS AND TEXT WRAPPER HOVER */
+.navbar-wrapper .nav-link:hover {
+  opacity: 1;
+}
+
+/* NOTES WRAPPER */
+.note-wrapper {
+  height: 110%;
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .note-wrapper {
+    height: 100%;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1000px) {
+  .note-wrapper {
+    height: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+/* NOTE */
+.note {
+  margin-bottom: 0px;
+  width: 93%;
+  height: 100%;
+  padding: 20px 60px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+/* NOTE TEXT */
+.note h3 {
+  color: var(--textColor);
+  font-size: calc(1em + 0.3vw);
+}
+
+.note h6 {
+  color: var(--textColor);
+  font-size: 1vw;
+}
+
+.note p {
+  color: var(--textColor);
+}
+
+footer {
+  background-color: var(--mainColor);
+  color: var(--textColor);
+  padding: 12px;
+  text-align: center;
+  font-size: 1vw;
+}
+
+.footer-copyright {
+  font-size: 15px;
+}
+
+.card {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.container .note-group label {
+  color: var(--textColor);
+}
+
+.note-group button {
+  border-radius: 10px;
+  background-color: var(--mainColor);
+  border: 2px solid var(--textColor);
+  color: var(--textColor);
+  padding: 10px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--textColor);
+}
+
+.popup-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 10;
+}
+
+.popup-container button {
+  color: black;
+  border: 1px solid black;
+}
+
+.instructions-popup {
+  position: fixed;
+  overflow: auto;
+  padding: 30px;
+  top: 50%;
+  border-radius: 10px;
+  height: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  -webkit-backdrop-filter: blur(10px) saturate(100%) contrast(45%)
+    brightness(130%);
+  width: 1000px;
+  max-width: 80%;
+}
+
+@media (max-width: 1080px) {
+  .instructions-popup {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 525px) {
+  .instructions-popup .title {
+    font-size: 3vw;
+    padding: 0px;
+  }
+}
+
+.instructions-popup button {
+  background: transparent;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.instructions-popup .header {
+  padding: 10px 15px;
+  font: 'Poppins Bold';
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.instructions-popup .close-button {
+  border: none;
+  font-size: 30px;
+  background-color: transparent;
+}

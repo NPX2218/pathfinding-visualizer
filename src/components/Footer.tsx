@@ -1,0 +1,25 @@
+///////////////////////////////////////
+// IMPORTING MODULES
+///////////////////////////////////////
+
+import React from 'react';
+
+///////////////////////////////////////
+// COMPONENT: NAVBAR
+///////////////////////////////////////
+
+const Footer = (): JSX.Element => {
+  return (
+    <footer>
+      <div className="text-sm p-2">
+        Copyright © {new Date().getFullYear()} : Neel Bansal
+      </div>
+    </footer>
+  );
+};
+
+///////////////////////////////////////
+// EXPORTING FOOTER
+///////////////////////////////////////
+
+export default Footer;

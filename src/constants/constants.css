@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* DECLARING ROOT VARIABLES */
+:root {
+  --mainColor: #1f3247;
+  /*--mainColor: rgb(12, 53, 71);*/
+  --scrollBarHandle: #888;
+  --fontFamily: 'Inter';
+  --secondaryColor: rgb(255, 254, 106);
+  --textColor: white;
+}
+
+* {
+  font-family: var(--fontFamily), sans-serif;
+}
