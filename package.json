@@ -1,7 +1,7 @@
 {
   "name": "pathfinding-visualizer",
   "version": "0.1.0",
-  "homepage": "http://npx2218.github.io/Pathfinding-Visualizer",
+  "homepage": "http://npx2218.github.io/pathfinding-visualizer",
   "private": true,
   "dependencies": {
     "@babel/cli": "^7.17.10",
